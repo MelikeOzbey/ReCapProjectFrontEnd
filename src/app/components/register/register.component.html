@@ -1,0 +1,97 @@
+<!-- <div class="container">
+    <main>
+        <div class="col-md-7 col-lg-8">
+            <form [formGroup]="registerForm" class="needs-validation" novalidate  >
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Adınız</label>
+                        <input formControlName="firstName"
+                        type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Valid first name is required.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Soyadınız</label>
+                        <input formControlName="lastName"
+                        type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Valid last name is required.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input formControlName="email"
+                        type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="password" class="form-label">Şifre</label>
+                        <input formControlName="password"
+                        type="password" class="form-control" id="password">
+                        <div class="invalid-feedback">
+                            Please enter a valid password for shipping updates.
+                        </div>
+                    </div>
+
+                   
+
+                </div>
+
+                <hr class="my-4">
+
+                <button class="w-100 btn btn-primary btn-lg" (click)="register()" type="submit">Kayıt Ol</button>
+            </form>
+        </div>
+    </main>
+</div> -->
+
+<div class="container" >
+    <div class="row">
+    <div class="col-md-8">
+    <img style="margin-top: 5rem;" src="/assets/images/rentacar_img1.jpg" style="width: 100%;">
+    </div>
+    <div class="col-md-4">
+      <div class="text-center" style="margin-top: 7rem;">
+        
+        <main class="form-signin">
+          <form [formGroup]="registerForm">
+            <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+            <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
+            <div class="form-floating">
+                <input formControlName="firstName"
+                 type="text" class="form-control" id="floatingInput" placeholder="First Name" >
+                <label for="floatingInput">Adınız</label>
+              </div>
+              <div class="form-floating">
+                <input formControlName="lastName"
+                type="text" class="form-control" id="floatingInput" placeholder="Last Name" >
+                <label for="floatingInput">Soyadınız</label>
+              </div>
+            <div class="form-floating">
+              <input formControlName="email"
+              type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">E-posta</label>
+            </div>
+            <div class="form-floating">
+              <input formControlName="password"
+              type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Şifre</label>
+            </div>
+        
+           
+            <button class="w-100 btn btn-lg btn-primary" (click)="register()">Kayıt Ol</button>
+            
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+          </form>
+        </main>
+    </div>
+    </div>
+    </div>
+    </div>
+    

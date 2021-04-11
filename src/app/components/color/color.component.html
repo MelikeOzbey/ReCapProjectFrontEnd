@@ -1,0 +1,3 @@
+<li *ngFor="let color of colors" routerLink="cars/color/{{color.id}}" (click)="setCurrentColor(color)" class="dropdown-item">{{color.colorName}}</li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="#">Tümü</a></li>

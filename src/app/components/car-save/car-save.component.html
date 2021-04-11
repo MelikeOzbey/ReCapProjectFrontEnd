@@ -1,0 +1,72 @@
+<div class="row" style="margin-top: 1rem;">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Araç Bilgileri
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carInfoForm">
+
+                    <div>
+                        <label for="brandId">Marka</label>
+                        <select class="form-select" formControlName="BrandId" 
+                            aria-label="Default select example" id="brandId">
+                            <option *ngFor="let brand of brands"  [ngValue]="brand.id">{{brand.brandName}}</option>
+                        </select>
+
+                    </div>
+                    <div>
+                        <label for="colorId">Renk</label>
+                       <select class="form-select" formControlName="ColorId" aria-label="Default select example"
+                            id="colorId">
+                           <option *ngFor="let color of colors" [ngValue]="color.id">{{color.colorName}}</option>
+                        </select>
+
+                    </div>
+                    <div>
+                        <label for="carName">Model</label>
+                        <input type="text" formControlName="CarName" class="form-control" id="carName">
+
+                    </div>
+
+                    <div>
+                        <label for="modelYear">Model Yılı</label>
+                        <input type="number" formControlName="ModelYear" class="form-control" id="modelYear">
+
+                    </div>
+                    <div>
+                        <label for="dailyPrice">Günlük Ücreti</label>
+                        <input type="number" formControlName="DailyPrice" class="form-control" id="dailyPrice">
+
+                    </div>
+                    <div>
+                        <label for="description">Açıklama</label>
+                        <input type="text" class="form-control" formControlName="Description" id="description">
+
+                    </div>
+                    <div>
+                        <label for="findexNo">Findex Puanı</label>
+                        <input type="number" class="form-control" id="findexNo" formControlName="findexNo">
+
+                    </div>
+                    <hr class="my-4">
+                    <button class="w-100 btn btn-lg btn-primary" (click)="SaveCarInfo()">Kaydet</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Araç Resimleri
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+</div>

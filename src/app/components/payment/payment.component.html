@@ -1,0 +1,142 @@
+<div class="container">
+  <main style="margin-top: 1rem;">
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Özet Bilgi</span>
+
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Araç</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Başlangıç Tarihi</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Bitiş Tarihi</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Günlük Fiyat</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Toplam Tutar</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Fatura Adresi</h4>
+        <form [formGroup]="paymentForm">
+          <input type="hidden" class="form-control"  formControlName="userId">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Adınız</label>
+              <input type="text" class="form-control" formControlName="userFirstName" id="firstName" >
+
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Soyadınız</label>
+              <input type="text" class="form-control" formControlName="userLastName" id="lastName" >
+
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">E-Posta</label>
+              <input type="text" class="form-control" formControlName="userEmail" id="email">
+
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Adres</label>
+              <input type="text" class="form-control" formControlName="userAddress" id="address">
+
+            </div>
+
+
+          </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" formControlName="boSaveInfo" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">Bilgilerimi Sakla</label>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Ödeme Bilgisi</h4>
+
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="boCreditType" formControlName="boCreditType" type="radio" class="form-check-input" (change)="change()">
+              <label class="form-check-label" for="creditCard">Kredi Kartı</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="boCreditType" type="radio" formControlName="boDebitType" class="form-check-input" (change)="change()" required>
+              <label class="form-check-label" for="debitCard">Banka Kartı</label>
+            </div>
+
+          </div>
+          <div id="cartDetail" style="display: none;">
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <label for="cc-name" class="form-label">Kart Üzerindeki İsim</label>
+                <input type="text" class="form-control" id="cc-name" formControlName="cardUserName">
+                
+              </div>
+
+              <div class="col-md-6">
+                <label for="cc-number" class="form-label">Kredi Kartı Numarası</label>
+                <input type="number" class="form-control" id="cc-number" formControlName="cardNumber" >
+
+              </div>
+              <div class="col-md-3">
+                <label for="cc-expiration-month" class="form-label">Son Kullanım Ay</label>
+                <input type="number" class="form-control" id="cc-expiration-month" formControlName="cardExpMonth">
+
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-expiration" class="form-label">Son Kullanım Yılı</label>
+                <input type="number" class="form-control" id="cc-expiration" formControlName="cardExpYear" >
+
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">CVV</label>
+                <input type="number" class="form-control" id="cc-cvv" formControlName="cardCvv">
+
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" (click)="savePayment()">Öde</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+
+</div>

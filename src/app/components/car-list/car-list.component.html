@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-6" style="margin-top:1rem;">
+        <input style="width: 600px;" type="text" class="form-control " id="filterText" [(ngModel)]="filterText"
+            placeholder="Araba Modeline Göre Arayınız...">
+    </div>
+    <div class="col-2" style="margin-top:1rem;">
+        <button type="button" routerLink="carsave" class="btn btn-primary">Yeni Araba Ekle</button>
+    </div>
+</div>
+<div class="row">
+    <div *ngFor="let car of cars | filter:filterText" class="col-sm-3">
+        <div class="card" style="width: 18rem; margin-top: 2rem;">
+            <img [src]="car.stFirstCarImage" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{car.carName}}</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Markası : {{car.brandName}}</li>
+                    <li class="list-group-item">Rengi : {{car.colorName}}</li>
+                    <li class="list-group-item">Günlük Ücreti : {{car.dailyPrice}}</li>
+                    <li class="list-group-item">Findeks Puanı : {{car.findexNo}}</li>
+                    <li class="list-group-item"> <a href="#" class="btn btn-success" routerLink="caredit/{{car.id}}">Düzenle</a>
+                       </li>
+
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+</div>

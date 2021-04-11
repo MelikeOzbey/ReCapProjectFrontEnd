@@ -1,0 +1,35 @@
+
+<div class="table-responsive" style="margin:1rem;">
+   
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            
+            <th scope="col-md-4">Kullanıcı Adı</th>
+            <th scope="col-md-4">Müşteri Firma </th>
+            <th scope="col-md-4">Kiralanan Araba</th>
+            <th scope="col-md-4">Günlük Fiyatı</th>
+            <th scope="col-md-4">Başlangıç Traihi</th>
+            <th scope="col-md-4">Bitiş Traihi</th>
+            <th scope="col-md-4">Ödenen Fiyat</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rentalDetail of rentalDetails">
+            <td>{{rentalDetail.userName}}</td>
+            <td>{{rentalDetail.companyName}}</td>
+            <td>{{rentalDetail.brandName}} / {{rentalDetail.carName}}</td>
+            <td>{{rentalDetail.dailyPrice | currency:"₺ "}}</td>
+            <td>{{rentalDetail.rentDate | date:"dd.MM.yyyy"}}</td>
+            <td>{{rentalDetail.returnDate | date:"dd.MM.yyyy"}}</td>
+            <td>{{rentalDetail.flTotalPrice | currency:"₺ "}}</td>
+            
+           <!-- <td><button type="button" class="btn btn-secondary" style="margin-right:1rem;">Düzenle</button><button type="button" class="btn btn-warning" >Sil</button> </td> -->
+           
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+    

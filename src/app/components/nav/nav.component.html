@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">RENTACAR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Markalar
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <app-brand></app-brand>
+            </ul>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Renkler
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+             <app-color></app-color>
+            </ul>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="cars" tabindex="-1" aria-disabled="true">Arabalar</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="isAdmin==true" routerLink="rentalList" tabindex="-1" aria-disabled="true">Kiralama Listesi</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="isAdmin==true" routerLink="customers" tabindex="-1" aria-disabled="true">Müşteri Listesi</a>
+          </li>
+          
+        </ul>
+        <div class="d-flex">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="d-flex">
+              <a class="nav-link"*ngIf="isAdmin==true" routerLink="carlist" tabindex="-1" aria-disabled="true">Araba EKle/Sil</a>
+            </li> -->
+            <li class="d-flex">
+              <app-nav-login></app-nav-login>
+            </li>
+          </ul>
+         
+         
+        </div>
+        
+      </div>
+    </div>
+  </nav>

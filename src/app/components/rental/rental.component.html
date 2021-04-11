@@ -1,0 +1,82 @@
+<div class="card" style="width: 100%; margin-top: 1rem;" >
+  <div class="card-header">
+    Şimdi Kirala
+  </div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+          <tr>
+          <th scope="col">#</th>
+            <th scope="col">Model</th>
+            <th scope="col">Günlük Fiyat</th>
+            <th scope="col">Başlangıç Tarihi</th>
+            <th scope="col">Bitiş Tarihi</th>
+            <th scope="col">Toplam Gün Sayısı</th>
+            <th scope="col">Toplam Ücret</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <td scope="row"><img [src]="imageUrl1" class="card-img-top" alt="..." style="width:100px;"></td>
+            <td *ngIf="carDetail"><input type="hidden" id="carId" value="{{carDetail.id}}"/><input id="carName" class="form-control" type="text"  value="{{carDetail.carName}}" readonly/></td>
+            <td ><input id="dailyPrice" class="form-control"  type="number" value="{{carDetail.dailyPrice}}" readonly/></td>
+            <td><input
+              type="datetime-local"
+              id="rentDate"
+              (change)="onRentDateChangeEvent($event)"
+              type="date"
+              class="form-control"
+            /></td>
+            <td><input
+              type="datetime-local"
+              id="returnDate"
+              (change)="onReturnDateChangeEvent($event)"
+              type="date"
+              class="form-control"
+            /></td>
+            <td><input type="text" class="form-control" id="totalDays" readonly/></td>
+            <td><input type="text" class="form-control" id="total" readonly/></td>
+            <td><button type="button" style="width: 30px;height: 30px; padding: 0px!important;" (click)="rentSave()" class="btn btn-success text-left"><img src="./assets/icon/saveButton.png"  style="width: 17px;"></button></td>
+          </tr>
+      
+        </tbody>
+       
+    </table>
+  </div>
+</div>
+
+
+<div class="card" style="width: 100%; margin-top: 1rem; " >
+  <div class="card-header">
+    Kiralama Listesi
+  </div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+        <th scope="col">#</th>
+          <th scope="col">Model</th>
+          <th scope="col">Günlük Fiyat</th>
+          <th scope="col">Başlangıç Tarihi</th>
+          <th scope="col">Bitiş Tarihi</th>
+          <th scope="col">Toplam Ücret</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let rental of rentals" >
+        <tr>
+          <td scope="row"><img [src]="imageUrl1" class="card-img-top" alt="..." style="width:100px;"></td>
+          <td>{{rental.carName}}</td>
+          <td>{{rental.dailyPrice}}</td>
+          <td>{{rental.rentDate  | date:"dd.MM.yyyy"}}</td>
+          <td>{{rental.returnDate  | date:"dd.MM.yyyy"}}</td>
+          <td>{{rental.flTotalPrice | currency:"₺ "}}</td>
+          <td><button *ngIf="rental.boPaid==false" type="button" routerLink="payment" class="btn btn-primary">Öde</button><button type="button" *ngIf="rental.boPaid==true" class="btn btn-secondary">Ödendi</button></td>
+        </tr>
+    
+      </tbody>
+          
+      </table>
+  </div>
+</div>

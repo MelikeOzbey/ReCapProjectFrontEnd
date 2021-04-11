@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-2">
+    <div class="card" style="margin-top:5.5rem;">
+      <div class="card-header" style="background-color:silver;">
+
+      </div>
+      <div class="card-body">
+        <div>
+          <label>Markalar</label>
+          <select class="form-control" #t (change)="orderbybrand(t.value)">
+            <option>Marka Seçiniz</option>
+            <option *ngFor="let brand of brands" [value]="brand.id">{{brand.brandName}}</option>
+
+          </select>
+        </div>
+        <div style="margin-top: 1rem;">
+          <label>Renkler</label>
+          <select class="form-control" #t (change)="orderbycolor(t.value)">
+            <option>Renk Seçiniz</option>
+            <option *ngFor="let color of colors" [value]="color.id">{{color.colorName}}</option>
+
+          </select>
+        </div>
+    
+      </div>
+      <div class="card-footer text-muted">
+        <div class="row">
+          <div class="col-4">
+            <a class="btn btn-warning" style="margin-top: 1rem;" (click)="filterCars()">Filtrele</a>
+          </div>
+          <div class="col-4">
+            <a class="btn btn-secondary" style="margin-top: 1rem; margin-left: 1rem;" (click)="clean()">Temizle</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-6" style="margin-top:1rem;">
+        <input style="width: 600px;" type="email" class="form-control " id="filterText" [(ngModel)]="filterText"
+          placeholder="Araba Modeline veya Rengine Göre Arayınız...">
+      </div>
+      <div class="col-2" style="margin-top:1rem;">
+
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let car of cars | filter:filterText" class="col-sm-4">
+        <div class="card" style="width: 18rem; margin-top: 2rem;">
+          <img [src]="car.stFirstCarImage" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{car.carName}}</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Markası : {{car.brandName}}</li>
+              <li class="list-group-item">Rengi : {{car.colorName}}</li>
+              <li class="list-group-item">Günlük Ücreti : {{car.dailyPrice}}</li>
+              <li class="list-group-item">Findeks Puanı : {{car.findexNo}}</li>
+              
+            </ul>
+            <a href="#" class="btn btn-danger" routerLink="car/detail/{{car.id}}">İncele</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+
+<li *ngFor="let brand of brands" class="dropdown-item" routerLink="cars/brand/{{brand.id}}" (click)="setCurrentBrand(brand)">{{brand.brandName}}</li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="#">Tümü</a></li>
+
