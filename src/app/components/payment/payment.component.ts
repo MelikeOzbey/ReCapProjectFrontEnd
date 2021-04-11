@@ -41,19 +41,19 @@ export class PaymentComponent implements OnInit {
 
   savePayment() {
     debugger
-    //if (this.paymentForm.valid) {
+   if (this.paymentForm.valid) {
       let paymentModel = Object.assign({}, this.paymentForm.value);
       console.log(paymentModel);
-      // if(paymentModel.boSaveInfo==true){
-      //   this.paymentService.addPayment(paymentModel).subscribe(response => {
-      //     this.toastrService.info("Bilgileriniz kayıt edildi ve başarılı bir şekilde tamamlandı.", "Başarılı");
-      //   },responseError=>{
-      //     this.toastrService.error("İşlem sırasında hata oluştu.", "Dikkat");
-      //   })
-      // }else{
-      //   this.toastrService.info("Ödeme başarılı bir şekilde tamamlandı.", "Başarılı");
-      // }
+      if(paymentModel.boSaveInfo==true){
+        this.paymentService.addPayment(paymentModel).subscribe(response => {
+          this.toastrService.info("Bilgileriniz kayıt edildi ve başarılı bir şekilde tamamlandı.", "Başarılı");
+        },responseError=>{
+          this.toastrService.error("İşlem sırasında hata oluştu.", "Dikkat");
+        })
+      }else{
+        this.toastrService.info("Ödeme başarılı bir şekilde tamamlandı.", "Başarılı");
+      }
      
-   // }
+   }
   }
 }
