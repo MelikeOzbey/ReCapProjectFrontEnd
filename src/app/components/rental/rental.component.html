@@ -1,4 +1,4 @@
-<div class="card" style="width: 100%; margin-top: 1rem;" >
+<div class="card" style="width: 100%; margin-top: 1rem;" *ngIf="carDetail">
   <div class="card-header">
     Şimdi Kirala
   </div>
@@ -20,7 +20,7 @@
           <tr>
             <td scope="row"><img [src]="imageUrl1" class="card-img-top" alt="..." style="width:100px;"></td>
             <td *ngIf="carDetail"><input type="hidden" id="carId" value="{{carDetail.id}}"/><input id="carName" class="form-control" type="text"  value="{{carDetail.carName}}" readonly/></td>
-            <td ><input id="dailyPrice" class="form-control"  type="number" value="{{carDetail.dailyPrice}}" readonly/></td>
+            <td *ngIf="carDetail"><input id="DailyPrice" class="form-control"  type="number" value="{{carDetail.dailyPrice}}" readonly/></td>
             <td><input
               type="datetime-local"
               id="rentDate"
@@ -37,7 +37,7 @@
             /></td>
             <td><input type="text" class="form-control" id="totalDays" readonly/></td>
             <td><input type="text" class="form-control" id="total" readonly/></td>
-            <td><button type="button" style="width: 30px;height: 30px; padding: 0px!important;" (click)="rentSave()" class="btn btn-success text-left"><img src="./assets/icon/saveButton.png"  style="width: 17px;"></button></td>
+            <td><button type="button" (click)="addInfo()" routerLink="payment" class="btn btn-success text-left">Öde</button></td>
           </tr>
       
         </tbody>
@@ -72,7 +72,7 @@
           <td>{{rental.rentDate  | date:"dd.MM.yyyy"}}</td>
           <td>{{rental.returnDate  | date:"dd.MM.yyyy"}}</td>
           <td>{{rental.flTotalPrice | currency:"₺ "}}</td>
-          <td><button *ngIf="rental.boPaid==false" type="button" routerLink="payment" class="btn btn-primary">Öde</button><button type="button" *ngIf="rental.boPaid==true" class="btn btn-secondary">Ödendi</button></td>
+          <td><button type="button" *ngIf="rental.boPaid==true" class="btn btn-secondary">Ödendi</button></td>
         </tr>
     
       </tbody>

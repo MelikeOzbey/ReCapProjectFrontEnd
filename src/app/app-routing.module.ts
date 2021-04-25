@@ -31,6 +31,8 @@ const routes: Routes = [
   { path: "setting/carlist", component: CarListComponent },
   { path: "setting", component: SettingComponent },
   { path: "setting/carlist/carsave", component: CarSaveComponent },
+  { path: "rent", component: RentalComponent },
+  
   
 ];
 

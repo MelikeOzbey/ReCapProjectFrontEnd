@@ -11,35 +11,35 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Araç</h6>
-              <small class="text-muted">Brief description</small>
+              <small class="text-muted">{{rentalDetail.carName}}</small>
             </div>
 
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Başlangıç Tarihi</h6>
-              <small class="text-muted">Brief description</small>
+              <small class="text-muted">{{rentalDetail.rentDate | date:"dd.MM.yyyy"}}</small>
             </div>
 
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Bitiş Tarihi</h6>
-              <small class="text-muted">Brief description</small>
+              <small class="text-muted">{{rentalDetail.returnDate | date:"dd.MM.yyyy"}}</small>
             </div>
 
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Günlük Fiyat</h6>
-              <small class="text-muted">Brief description</small>
+              <small class="text-muted">{{rentalDetail.dailyPrice}}</small>
             </div>
 
           </li>
 
           <li class="list-group-item d-flex justify-content-between">
             <span>Toplam Tutar</span>
-            <strong>$20</strong>
+            <strong>{{rentalDetail.flTotalPrice | currency:"₺ "}}</strong>
           </li>
         </ul>
 
@@ -47,17 +47,17 @@
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Fatura Adresi</h4>
         <form [formGroup]="paymentForm">
-          <input type="hidden" class="form-control"  formControlName="userId">
+          <input type="hidden" class="form-control" [(ngModel)]="userId" formControlName="userId">
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Adınız</label>
-              <input type="text" class="form-control" formControlName="userFirstName" id="firstName" >
+              <input type="text" class="form-control" formControlName="userFirstName" id="firstName">
 
             </div>
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Soyadınız</label>
-              <input type="text" class="form-control" formControlName="userLastName" id="lastName" >
+              <input type="text" class="form-control" formControlName="userLastName" id="lastName">
 
             </div>
 
@@ -79,7 +79,7 @@
           <hr class="my-4">
 
           <div class="form-check">
-            <input type="checkbox" formControlName="boSaveInfo" class="form-check-input" id="save-info">
+            <input type="checkbox" class="form-check-input" id="save-info">
             <label class="form-check-label" for="save-info">Bilgilerimi Sakla</label>
           </div>
 
@@ -89,11 +89,13 @@
 
           <div class="my-3">
             <div class="form-check">
-              <input id="credit" name="boCreditType" formControlName="boCreditType" type="radio" class="form-check-input" (change)="change()">
+              <input id="credit" name="stCreditType" formControlName="stCreditType" type="radio" value="CreditCard"
+                class="form-check-input" (change)="change()">
               <label class="form-check-label" for="creditCard">Kredi Kartı</label>
             </div>
             <div class="form-check">
-              <input id="debit" name="boCreditType" type="radio" formControlName="boDebitType" class="form-check-input" (change)="change()" required>
+              <input id="debit" name="stCreditType" type="radio" formControlName="stCreditType" value="BankCard"
+                class="form-check-input" (change)="change()" required>
               <label class="form-check-label" for="debitCard">Banka Kartı</label>
             </div>
 
@@ -103,12 +105,12 @@
               <div class="col-md-6">
                 <label for="cc-name" class="form-label">Kart Üzerindeki İsim</label>
                 <input type="text" class="form-control" id="cc-name" formControlName="cardUserName">
-                
+
               </div>
 
               <div class="col-md-6">
                 <label for="cc-number" class="form-label">Kredi Kartı Numarası</label>
-                <input type="number" class="form-control" id="cc-number" formControlName="cardNumber" >
+                <input type="text" class="form-control" id="cc-number" formControlName="cardNumber">
 
               </div>
               <div class="col-md-3">
@@ -119,7 +121,7 @@
 
               <div class="col-md-3">
                 <label for="cc-expiration" class="form-label">Son Kullanım Yılı</label>
-                <input type="number" class="form-control" id="cc-expiration" formControlName="cardExpYear" >
+                <input type="number" class="form-control" id="cc-expiration" formControlName="cardExpYear">
 
               </div>
 
@@ -131,8 +133,14 @@
             </div>
           </div>
           <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" (click)="savePayment()">Öde</button>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="w-100 btn btn-primary btn-lg" (click)="savePayment()">Öde</button>
+            </div>
+            <div class="col-md-6">
+              <a class="w-100 btn btn-danger btn-lg" href="rent" (click)="deletePayment()">Vazgeç</a>
+            </div>
+          </div>
         </form>
       </div>
     </div>

@@ -13,7 +13,7 @@ export class FindexScoreService {
 
   checkIfCarFindexOK(carId: number, userId: number): Observable<ResponseModel> {
     debugger
-    let newPath = this.apiUrl + "/rentals/checkcarfindexavailable?carId=" + carId + "&userId=" + userId;
+    let newPath = this.apiUrl + "/rentals/checkcarfindexavailable?id=" + carId + "&userId=" + userId;
     return this.httpClient.get<ResponseModel>(newPath);
   }
 }

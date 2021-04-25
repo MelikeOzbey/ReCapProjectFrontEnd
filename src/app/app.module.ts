@@ -66,6 +66,7 @@ import { CarSaveComponent } from './components/car-save/car-save.component';
     ToastrModule.forRoot(
       { positionClass:"toast-top-right" }
     ),
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

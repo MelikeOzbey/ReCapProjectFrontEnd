@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PaymentInfo } from '../models/paymentInfo';
 import { ResponseModel } from '../models/responseModel';
+import { SingleRespnseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class PaymentService {
 
   addPayment(payment: PaymentInfo) {
     debugger
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "/paymentinfos/add", payment);
+    let newPath=this.apiUrl + "/PaymentInfos/add";
+    return this.httpClient.post<SingleRespnseModel<PaymentInfo>>(newPath, payment);
   }
 }

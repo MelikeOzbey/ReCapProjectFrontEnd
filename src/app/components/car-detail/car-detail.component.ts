@@ -43,12 +43,12 @@ export class CarDetailComponent implements OnInit {
     })
   }
   checkIfFindexScoreOk() {
-debugger
+
     this.activatedRoute.params.subscribe(params => {
-      debugger
+     
       if (params["carId"]) {
         this.findexService.checkIfCarFindexOK(params["carId"], this.userId).subscribe(response => {
-          debugger
+         
         if(response.success)
         {
           (<HTMLDivElement>document.getElementById("findexOK")).style.display="block";

@@ -4,10 +4,7 @@ export interface PaymentInfo{
     userLastName:string;
     userEmail:string;
     userAddress:string;
-    boSaveInfo:boolean;
-    boCreditType :boolean;
-    boDebitType :boolean;
-    boDebitCart :boolean;
+    stCreditType :boolean;
     cardUserName :string;
     cardNumber:string;
     cardExpMonth :number;

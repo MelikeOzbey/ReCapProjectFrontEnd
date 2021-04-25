@@ -6,6 +6,7 @@ import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -18,11 +19,13 @@ export class CarSaveComponent implements OnInit {
   carInfoForm: FormGroup;
   brands: Brand[] = [];
   colors: Color[] = [];
-
+  selectedFile: File;
+  activatedRoute: any;
   constructor(private carService: CarService, private brandService: BrandService, private formBuilder: FormBuilder,
     private colorService: ColorService,
     private toastrService: ToastrService,
-    private router: Router,) { }
+    private router: Router,
+    private carImageService:CarImageService) { }
 
   ngOnInit(): void {
     this.createCarForm();
@@ -57,7 +60,7 @@ export class CarSaveComponent implements OnInit {
   SaveCarInfo() {
     debugger
     if (this.carInfoForm.valid) {
-      let carModel:Car = Object.assign({}, this.carInfoForm.value)
+      let carModel: Car = Object.assign({}, this.carInfoForm.value)
       this.carService.createCar(carModel).subscribe(response => {
         this.toastrService.info(response.message, "Başarılı");
         this.router.navigateByUrl("setting/carlist");
@@ -65,5 +68,17 @@ export class CarSaveComponent implements OnInit {
         this.toastrService.error("Kayıt sırasında hata oluştu", "Dikkat")
       })
     }
+  }
+
+  onFileSelected(event) {
+    debugger
+    this.selectedFile = <File>event.target.files[0];
+    this.activatedRoute.params.subscribe(params => {
+
+      if (params["carId"]) {
+        this.carImageService.addImage(params["carId"],this.selectedFile);
+      }
+    })
+    
   }
 }

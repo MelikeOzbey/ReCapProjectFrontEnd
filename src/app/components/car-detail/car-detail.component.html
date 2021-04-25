@@ -52,17 +52,17 @@
                     <li class="list-group-item" *ngIf="car">Günlük Fiyat : {{car.dailyPrice}}</li>
                     <li class="list-group-item" *ngIf="car">Model yılı : {{car.modelYear}}</li>
                     <li class="list-group-item" *ngIf="car">Findeks Puanı : {{car.findexNo}}</li>
-                    <p class="card-text" *ngIf="car">Açıklama : {{car.description}}</p>
+                    <li class="list-group-item" *ngIf="car">Açıklama : {{car.description}}</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="alert alert-danger mb-3" id="findexNotOK" style="width: 25rem; display: none;" role="alert">
-            Findeks paunınız araç kiralamaya yeterli değildir.
+            Findeks puanınız araç kiralamaya yeterli değildir.
           </div>
           <div class="alert alert-success mb-3" id="findexOK" style="width: 25rem; display: none;" role="alert">
-            Findeks paunınız araç kiralamaya uygundur.
+            Findeks puanınız araç kiralamaya uygundur.
           </div>
         <div class="card border-warning mb-3" style="width: 25rem;">
 
@@ -73,7 +73,8 @@
             <div class="card-body text-danger">
 
                 <p class="card-text">Kiraladığın Gün Başlangıç :</p>
-                <input class="form-control" type="text" #myInput  (keyup)="OnInput(myInput.value)" placeholder="Tarih giriniz..."/>
+               <input  type="datetime-local" id="rentDate" #myInput (change)="OnInput(myInput.value)" type="date"
+              class="form-control" />
                 <div style="margin-top: 1rem;">
                     <button type="button" (click)="checkIfCarIsOk()" id="checkRental" class="btn btn-success">Durumu Sorgula</button>
                     <button style="margin-left: 1rem;"*ngIf="result" routerLink="rent"  type="button" class="btn btn-primary">Kirala</button>

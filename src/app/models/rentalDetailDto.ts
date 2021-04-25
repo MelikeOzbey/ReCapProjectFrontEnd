@@ -14,5 +14,6 @@ export interface RentalDetailDto{
         findexNo:number;
         brandName:string;
         flTotalPrice:number;
+        inTotalDays:number;
        
 }
